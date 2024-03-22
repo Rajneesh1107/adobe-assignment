@@ -72,13 +72,14 @@ function emailValidator(email) {
 
 // Function to check if email contains only allowed characters
 function isValidEmail(email) {
-  const allowedChars = new Set(
-    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.@"
-  );
+  email = email.trim();
+  const allowedChars =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.@";
 
   for (let i = 0; i < email.length; i++) {
-    const char = email.charAt(i);
-    if (!allowedChars.has(char)) {
+    const char = email[i];
+    if (allowedChars.indexOf(char) == -1) {
+      console.log(char);
       return false;
     }
   }
